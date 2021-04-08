@@ -16,14 +16,14 @@ function findBookById(books, id) {
 
 
 function partitionBooksByBorrowedStatus(books) {
-  const booksborrowed = books.filter((book) =>
-  book.borrows.map((borrow) => (!borrow.returned[0])));
+  const result =[];
+  const booksborrowed = books.filter((book) => (!book.borrows[0].returned));
   
   
-  const booksreturned = books.filter((book) =>
-  book.borrows.map((borrow) => (borrow.returned[0])));
-  console.log([...booksborrowed, ...booksreturned]);
-  return [...booksborrowed, ...booksreturned];
+  const booksReturned = books.filter((book) =>  (book.borrows[0].returned));
+  
+  result.push(booksborrowed,booksReturned);
+  return result
 }
 
 
